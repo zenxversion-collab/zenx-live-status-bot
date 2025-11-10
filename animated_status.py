@@ -15,7 +15,7 @@ bot_token = "8239402267:AAFz8pVgZ70BrArslcwPrnYifelnBBsnJfc"
 SESSION_NAME = "zenx_session"
 
 CHANNEL = "ZenexCrew"       # Channel username (no @)
-PINNED_MESSAGE_ID = 49      # Pinned message ID
+PINNED_MESSAGE_ID = 51      # Pinned message ID
 
 IST = pytz.timezone("Asia/Kolkata")  # Indian Standard Time
 
