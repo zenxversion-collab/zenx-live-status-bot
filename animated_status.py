@@ -1,5 +1,12 @@
 import os
+import asyncio
+from datetime import datetime
+import pytz
 from telethon import TelegramClient
+
+# Telegram API credentials
+api_id = 2040
+api_hash = "b18441a1ff607e10a989891a5462e627"
 
 # Session file name
 SESSION_NAME = "zenx_session"
@@ -8,16 +15,14 @@ SESSION_NAME = "zenx_session"
 if os.path.exists(f"{SESSION_NAME}.session"):
     os.remove(f"{SESSION_NAME}.session")
 
-# Telegram API credentials
-api_id = 2040
-api_hash = "b18441a1ff607e10a989891a5462e627"
-
-# Create client
+# Create Telegram client
 client = TelegramClient(SESSION_NAME, api_id, api_hash)
 
+# Channel username (no @)
 CHANNEL = "ZenexCrew"
 PINNED_MESSAGE_ID = 49
 
+# IST timezone
 IST = pytz.timezone("Asia/Kolkata")
 
 async def live_time_status():
@@ -43,13 +48,14 @@ async def live_time_status():
 """
             await client.edit_message(CHANNEL, PINNED_MESSAGE_ID, text)
             await asyncio.sleep(1)
+
         except Exception as e:
             print("❌ Error:", e)
             await asyncio.sleep(5)
 
 async def main():
     await client.start()
-    print("✅ ZENX Live Clock Started...")
+    print("✅ ZENX Live Clock (IST) Started...")
     await live_time_status()
 
 with client:
