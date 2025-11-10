@@ -1,2 +1,2 @@
-telethon
-pytz
+telethon==1.42.0
+pytz==2025.2
