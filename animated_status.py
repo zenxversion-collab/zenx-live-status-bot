@@ -1,11 +1,19 @@
+import os
 from telethon import TelegramClient
-import asyncio
-from datetime import datetime
-import pytz
 
+# Session file name
+SESSION_NAME = "zenx_session"
+
+# Remove any corrupted session file on start
+if os.path.exists(f"{SESSION_NAME}.session"):
+    os.remove(f"{SESSION_NAME}.session")
+
+# Telegram API credentials
 api_id = 2040
 api_hash = "b18441a1ff607e10a989891a5462e627"
-client = TelegramClient("zenx_session", api_id, api_hash)
+
+# Create client
+client = TelegramClient(SESSION_NAME, api_id, api_hash)
 
 CHANNEL = "ZenexCrew"
 PINNED_MESSAGE_ID = 49
